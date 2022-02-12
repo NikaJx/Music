@@ -81,7 +81,10 @@
             </div>
         </div>
     </header>
-
+    <audio controls id="player">
+        <source id="src" src="./music/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
     <section class="popular-song">
         <div class="container-table">
             <h2>Popular songs</h2>
@@ -108,7 +111,7 @@
                         <td>6:11</td>
                         <td>
                             <div class="add-favorite">
-                                <div class="favorite">
+                                <div class="favorite" onclick="playMusic('./music/music.mp3')">
                                     <img src="./icons/Add to Favorite (web).png" alt="">
                                 </div>
                                 <div class="addLove">
@@ -129,7 +132,7 @@
                         <td>3:59</td>
                         <td>
                             <div class="add-favorite">
-                                <div class="favorite">
+                                <div class="favorite" onclick="playMusic('./music/music2.mp3')"> 
                                     <img src="./icons/Add to Favorite (web).png" alt="">
                                 </div>
                                 <div class="addLove">
@@ -445,6 +448,17 @@
     </div>
 </section>
    </div>
+  
    <script src="./js/app.js"></script>
+   <script>
+    function playMusic(name) {
+        var player = document.getElementById("player");
+        document.getElementById("src").setAttribute('src', name);
+        player.pause();
+        player.load();
+        player.play();
+        console.log("music: ", name)
+    }
+   </script>
 </body>
 </html>

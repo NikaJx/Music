@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         music.play();
     });
-
+    console.log("sdfds")
   
     const btAdd = document.querySelectorAll('.bt');
     
@@ -19,4 +19,9 @@ window.addEventListener('DOMContentLoaded', () => {
             alert('Hello Gali');
         });
     });
+    console.log("hello");
+
+
+ 
+
 });
