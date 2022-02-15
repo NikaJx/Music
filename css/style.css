@@ -316,6 +316,7 @@ td:nth-child(5) {
 .add-favorite {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .add-favorite .addLove {
@@ -554,3 +555,4 @@ td:nth-child(5) {
         justify-content: flex-end;
     }
 } 
+
