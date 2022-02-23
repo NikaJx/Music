@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/reset200802.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -84,127 +83,117 @@
 
     <section class="popular-song">
         <div class="container-table">
+            <audio controls id="player">
+                <source id="src" src="./music/music.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
             <h2>Popular songs</h2>
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Artist</th>
-                    <th scope="col">Album</th>
-                    <th scope="col">Time</th>
-                  </tr>
+            <table class="content-table">
+                <thead>    
+                    <tr>
+                        <th class="line1">#</th>
+                        <th>TITLE</th>
+                        <th>ARTIST</th>
+                        <th>ALBUM</th>
+                        <th>TIME</th>
+                        <th></th>
+                    </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">
-                        <div class="img-pro">
-                            1<img src="./icons/Изображение 491.png" alt="">
-                        </div>
-                    </th>
+                <tbody id="musicTable">
+                    <!-- <tr>
+                        <td>
+                            <div class="align">
+                                <h6>1</h6>
+                                <img class="wallpaper" src="./icons/Изображение 491.png">
+                            </div>
+                        </td>
                         <td>Heroes</td>
                         <td>David Bowie</td>
                         <td>Heroes</td>
                         <td>6:11</td>
                         <td>
-                            <div class="add-favorite">
-                                <div class="favorite fav1">
-                                    <img src="./icons/Add to Favorite (web).png" alt="">
-                                </div>
-                                <div class="addLove">
-                                    <img src="./icons/Add To Playlist (web).png" alt="" class="playL">
-                                </div>
-                           </div>
+                            <div class="align">
+                                <img class="icon" src="./icons/Add to Favorite (web).png">
+                                <img class="icon" src="./icons/Add To Playlist (web).png">
+                            </div>
                         </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                        <div class="img-pro">
-                            2 <img src="./icons/Изображение 492.png" alt="">
-                        </div>
-                    </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="align">
+                                <h6>2</h6>
+                                <img class="wallpaper" src="./icons/Изображение 492.png">
+                            </div>
+                        </td>
                         <td>Life On Mars</td>
                         <td>David Bowie</td>
                         <td>Hunky Dory</td>
-                        <td>3:59</td>
+                        <td>3:56</td>
                         <td>
-                            <div class="add-favorite">
-                                <div class="favorite fav2">
-                                    <img src="./icons/Add to Favorite (web).png" alt="">
-                                </div>
-                                <div class="addLove">
-                                    <img src="./icons/Add To Playlist (web).png" alt="">
-                                </div>
-                           </div>
+                            <div class="align">
+                                <img class="icon" src="./icons/Add to Favorite (web).png">
+                                <img class="icon" src="./icons/Add To Playlist (web).png">
+                            </div>
                         </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                        <div class="img-pro">
-                            3 <img src="./icons/Изображение 493.png" alt="">
-                        </div>
-                    </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="align">
+                                <h6>3</h6>
+                                <img class="wallpaper" src="./icons/Изображение 493.png">
+                            </div>
+                        </td>
                         <td>Ashes To Ashes</td>
                         <td>David Bowie</td>
                         <td>Scary Monsters (and Super Creeps)</td>
-                        <td>7:22</td>
+                        <td>4:26</td>
                         <td>
-                            <div class="add-favorite">
-                                <div class="favorite fav3">
-                                    <img src="./icons/Add to Favorite (web).png" alt="">
-                                </div>
-                                <div class="addLove">
-                                    <img src="./icons/Add To Playlist (web).png" alt="">
-                                </div>
-                           </div>
+                            <div class="align">
+                                <img class="icon" src="./icons/Add to Favorite (web).png">
+                                <img class="icon" src="./icons/Add To Playlist (web).png">
+                            </div>
                         </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                        <div class="img-pro">
-                            4 <img src="./icons/Изображение 494.png" alt="">
-                        </div>
-                    </th>
-                        <td>Ashes To Ashes</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="align">
+                                <h6>4</h6>
+                                <img class="wallpaper" src="./icons/Изображение 494.png">
+                            </div>
+                        </td>
+                        <td>Starman</td>
                         <td>David Bowie</td>
-                        <td>Scary Monsters (and Super Creeps)</td>
-                        <td>7:22</td>
+                        <td>The Rise and Fall of Ziggy Stardust and the Spiders from Mars</td>
+                        <td>4:14</td>
                         <td>
-                            <div class="add-favorite">
-                                <div class="favorite fav4">
-                                    <img src="./icons/Add to Favorite (web).png" alt="">
-                                </div>
-                                <div class="addLove">
-                                    <img src="./icons/Add To Playlist (web).png" alt="">
-                                </div>
-                           </div>
+                            <div class="align">
+                                <img class="icon" src="./icons/Add to Favorite (web).png">
+                                <img class="icon" src="./icons/Add To Playlist (web).png">
+                            </div>
                         </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">
-                        <div class="img-pro">
-                            5 <img src="./icons/Изображение 495.png" alt="">
-                        </div>
-                    </th>
-                        <td>Ashes To Ashes</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="align">
+                                <h6>5</h6>
+                                <img class="wallpaper" src="./icons/Изображение 495.png">
+                            </div>
+                        </td>
+                        <td>Changes</td>
                         <td>David Bowie</td>
-                        <td>Scary Monsters (and Super Creeps)</td>
-                        <td>7:22</td>
+                        <td>Hunky Dory</td>
+                        <td>3:38</td>
                         <td>
-                           <div class="add-favorite">
-                                <div class="favorite fav5">
-                                    <img src="./icons/Add to Favorite (web).png" alt="">
-                                </div>
-                                <div class="addLove">
-                                    <img src="./icons/Add To Playlist (web).png" alt="">
-                                </div>
-                           </div>
+                            <div class="align">
+                                <img class="icon" src="./icons/Add to Favorite (web).png">
+                                <img class="icon" src="./icons/Add To Playlist (web).png">
+                            </div>
                         </td>
-                  </tr>
+                    </tr> -->
                 </tbody>
-              </table>
+            </table>
               <div class="buttons">
-                <button class="btns">Show 5 more</button>
+                <button class="btns bt-add">Show 5 more</button>
               </div>
         </div>
     </section>
@@ -444,7 +433,26 @@
        </div>
     </div>
 </section>
-   </div>
+<section class="playerMusic">
+    <div class="container-music">
+        <div class="music-play">
+            <audio src="./music/music.mp3" id="audio"></audio>
+            <div class="prev">
+                <img src="./icons/prev.png" alt="">
+            </div>
+            <div class="play">
+                <img src="./icons/Play.png" alt="">
+            </div>
+            <div class="next">
+                <img src="./icons/next.png" alt="">
+            </div>
+        </div>
+        <div class="exit">
+                <img src="./icons/Close.png" alt="">
+        </div>
+    </div>
+</section>
+</div>
    <script src="./js/app.js"></script>
 </body>
 </html>
