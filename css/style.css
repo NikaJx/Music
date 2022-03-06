@@ -401,6 +401,19 @@ td:nth-child(5) {
     font-weight: bold;
 }
 
+/* .buttons .remove {
+    display: none;
+    width: 158px;
+    height: 40px;
+    border-radius: 50px;
+    border: 1px solid #FFFFFF;
+    background: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+} */
+
 .alboms {
     display: flex;
     padding-top: 40px;
@@ -519,6 +532,10 @@ td:nth-child(5) {
     height: 86px;
     background-color: #3A3A3D;
     align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }
 
 .container-music {
@@ -531,6 +548,10 @@ td:nth-child(5) {
     justify-content: center;
     padding-top: 35px;
     cursor: pointer;
+}
+
+.playerMusic .music-play  .pause {
+    display: none;
 }
 
 .playerMusic .music-play .prev {
