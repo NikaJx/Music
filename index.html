@@ -194,7 +194,7 @@
             </table>
               <div class="buttons">
                 <button class="btns bt-add">Show 5 more</button>
-                <!-- <button class="remove">Remove 5 files</button> -->
+                <button class="remove">Remove 5 files</button>
               </div>
         </div>
     </section>
@@ -436,7 +436,11 @@
 </section>
 <section class="playerMusic">
     <div class="container-music">
+        
         <div class="music-play">
+            <div class="left">
+                <img src="./icons/Song Info & Nav.png" alt="">
+            </div>
             <audio src="./music/music.mp3" id="audio"></audio>
             <div class="prev">
                 <img src="./icons/prev.png" alt="">
@@ -448,10 +452,18 @@
             <div class="next">
                 <img src="./icons/next.png" alt="">
             </div>
-        </div>
-        <div class="exit">
+            <div class="rigth">
+                <input type="range" id="volume" name="volume"
+                min="0" max="11">
+                <p class="val"></p>
+            </div>
+            <div class="exit">
                 <img src="./icons/Close.png" alt="">
-        </div>
+            </div>
+    </div>
+       <div class="progres-bar">
+           <div class="label"></div>
+       </div>
     </div>
 </section>
 </div>

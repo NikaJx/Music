@@ -243,6 +243,11 @@ header .main-menu .menu .input-rigth .rigth input::placeholder {
     margin-top: 10px;
 }
 
+.val {
+    color: #fff;
+    text-align: center;
+}
+
 /* .popular-song .table {
     margin-top: 20px;
 } */
@@ -297,7 +302,7 @@ header .main-menu .menu .input-rigth .rigth input::placeholder {
     padding-left: 17px;
  }
  
- .content-table td .icon {
+ .content-table td .icons {
      
      cursor: pointer;
      padding-right: 20px;
@@ -401,7 +406,7 @@ td:nth-child(5) {
     font-weight: bold;
 }
 
-/* .buttons .remove {
+.buttons .remove {
     display: none;
     width: 158px;
     height: 40px;
@@ -412,7 +417,7 @@ td:nth-child(5) {
     font-size: 16px;
     cursor: pointer;
     font-weight: bold;
-} */
+}
 
 .alboms {
     display: flex;
@@ -525,11 +530,16 @@ td:nth-child(5) {
     color: white;
 }
 
+.actived {
+    background-color: #4a403f;
+}
+.hide {
+    background-color: none;
+}
 
 .playerMusic {
     display: none;
     margin-top: 15px;
-    height: 86px;
     background-color: #3A3A3D;
     align-items: center;
     position: fixed;
@@ -545,10 +555,22 @@ td:nth-child(5) {
 
 .playerMusic .music-play {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     padding-top: 35px;
     cursor: pointer;
 }
+
+/* .playerMusic .left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.playerMusic .rigth {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+} */
 
 .playerMusic .music-play  .pause {
     display: none;
@@ -570,10 +592,24 @@ td:nth-child(5) {
     cursor: pointer;
 }
 
-/* .playerMusic .labels {
-    padding-top: 20px;
-    border-bottom: 2px solid #99999F;
-} */
+.progres-bar {
+    background: #E4E9ED;
+    border-radius: 5px;
+    width: 50%;
+    height: 10px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 280px;
+}
+
+.progres-bar .label {
+    background: #9B2DEF;
+    border-radius: 5px;
+    height: 6px;
+    /* width: 150px; */
+}
 
 @media (max-width: 1289px) {
     .containers {
