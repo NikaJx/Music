@@ -500,13 +500,11 @@ function addFavorite(id) {
 }
 
 
-// function volume() {
-//     let rangeValue = document.querySelector('#volume').value;
-//     document.querySelector('.val').innerHTML = 'Value' + rangeValue;
-//     console.log(rangeValue);
-// }
+let rangeValue = document.querySelector('#volume');
+rangeValue.addEventListener('change', function(e) {
+    audio.volume = e.currentTarget.value / 100;
+});
 
-// volume();
 
 function showPlayer() {
     let playerMove = document.querySelector('.playerMusic');
@@ -760,7 +758,7 @@ function addMusic(arr, loadedMusicNumber) {
             <td>
                 <div class="align">
                     <img class="icons" src="./icons/Play.png" onclick="playerMusic('${item.src}', ${item.id})">
-                    <img class="icon"  src="./icons/Add to Favorite (web).png" onclick="addFavorite('${item.id}')"
+                    <img class="icon"  src="./icons/Add to Favorite (web).png" onclick="addFavorites(${item.id})"
                     >
                 </div>
             </td>
@@ -853,3 +851,73 @@ bgs.addEventListener('click', (e) => {
         popupImg.classList.remove('pop-img');
     }
 });
+
+
+let favoriteArr = [];
+
+function addFavorites(id) {
+    if(favoriteArr.some((it) => it.id === id)) {
+        addFavLove.forEach((lov, i) => {
+            if(i === id) {
+                lov.setAttribute('src', './icons/Add to Favorite (web).png');
+                favoriteArr.pop();
+            }
+        });
+    } else {
+        const fav = musicArr.find((love) => love.id === id);
+        favoriteArr.push(fav);
+        addFavLove.forEach((love, i) => {
+            if((i === id)) {
+                love.setAttribute('src', './icons/Favorite.png');
+            } 
+        });
+    }
+    favoriteAddMusic();
+}
+
+let btnFavAdd = document.querySelector('.popAdd');
+let popFav = document.querySelector('.popup-fav');
+let popFavClose = document.querySelector('.popup__close_fav');
+let favtbody = document.querySelector('.favTbody');
+let addFavLove = document.querySelectorAll('.icon');
+let delFavorite = document.querySelectorAll('.close-icon');
+
+function deleteFAvorite(id) {
+    delFavorite.forEach((del, i) => {
+        
+    });
+}
+
+btnFavAdd.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    popFav.classList.add('open_fav');
+});
+
+popFavClose.addEventListener('click', () => {
+    popFav.classList.remove('open_fav');
+});
+
+
+function favoriteAddMusic() {
+    favtbody.innerHTML = '';
+    favoriteArr.forEach((ite) => {
+        favtbody.innerHTML += `
+            <tr>
+            <td>
+                <div class="align">
+                    <img class="wallpaper" src="${ite.img}">
+                </div>
+            </td>
+            <td>${ite.title}</td>
+            <td>${ite.artist}</td>
+            <td>
+                <div class="align">
+                    <img class="icons" src="./icons/Play.png" onclick="playerMusic('${ite.src}', ${ite.id})">
+                    <img class="close-icon" src="./icons/Close.png" onclick="deleteFAvorite(${ite.id})">
+                </div>
+            </td>
+        </tr>        
+        `;
+    });
+}

@@ -227,6 +227,7 @@ header .main-menu .menu .input-rigth .rigth input::placeholder {
     margin-left: 12px;
 }
 
+
 .artist .artis-info .artist-rigth .iconss img {
     padding-left: 10px;
 }
@@ -573,6 +574,8 @@ td:nth-child(5) {
 
 .icon {
     cursor: pointer;
+    width: 19px;
+    height: 17px;
 }
 
 /* .playerMusic .left {
@@ -625,6 +628,21 @@ td:nth-child(5) {
     /* width: 150px; */
 }
 
+.popup-fav .popup__body_fav .popup__content_fav table .favTbody tr {
+    display: flex;
+    align-items: center;
+}
+.close-icon {
+    margin-left: 17px;
+    cursor: pointer;
+}
+
+.popup-fav .popup__body_fav .popup__content_fav table .favTbody tr td {
+    padding: 12px 29px;
+    font-size: 15px;
+    color: white;
+}
+
  .imgg {
     position: fixed;
     width: 100%;
@@ -656,6 +674,23 @@ td:nth-child(5) {
     transition: all 0.8s ease 0s;
 }
 
+.popup-fav {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s ease 0s;
+}
+
+.popup-fav.open_fav {
+    opacity: 1;
+    visibility: visible;
+}
+
 .popup.open {
     opacity: 1;
     visibility: visible;
@@ -669,12 +704,43 @@ td:nth-child(5) {
     padding: 30px 10px;
 }
 
+.popup__body_fav {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+}
+
+.popup__content_fav {
+    background: url('../img/BG.png') center center/cover no-repeat;
+    color: #000;
+    max-width: 800px;
+    padding: 30px;
+    position: relative;
+    min-width: 400px;
+}
+
+.popup-fav .popup__body_fav .popup__content_fav table .favTbody tr td {
+    padding: 12px 15px;
+    font-size: 15px;
+}
+
 .popup__content {
     background-color: #fff;
     color: #000;
     max-width: 800px;
     padding: 30px;
     position: relative;
+}
+
+.popup__close_fav {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
 }
 
 .popup__close {
@@ -809,6 +875,10 @@ td:nth-child(5) {
     }
     .alboms .buttons {
         display: none;
+    }
+    .albom-wrapper {
+        flex-wrap: nowrap;
+        align-items: unset;
     }
     .albom-wrapper .albom {
         padding-left: 15px;
