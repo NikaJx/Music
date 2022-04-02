@@ -373,8 +373,12 @@ function pauseChangeIcon(src, id) {
     pauseIconChange.forEach((iconChange, i) => {
         if(id === i) {
             iconChange.setAttribute('src', src);
+            console.log(1);
+            iconChange.setAttribute('active-music', 'true');
         } else {
             iconChange.setAttribute('src', './icons/Play.png');
+            console.log(2);
+            iconChange.setAttribute('active-music', 'false');
         }
     });
 }
@@ -412,12 +416,18 @@ function playerMusic(name, id) {
     pauseIcon.style.display = 'block';
 
     let audio = document.getElementById('audio');
-    audio.setAttribute('src', name);
-    
-    audio.pause();
-    audio.load();
-    audio.play()
 
+    if(id === indexSong) {
+        audio.pause();
+        setTimeout(() => {
+            indexSong = 0;
+        }, 100);
+    } else {
+        audio.setAttribute('src', name);
+        audio.pause();
+        audio.load();
+        audio.play()
+    }
     indexSong = id;
 }
 

@@ -638,9 +638,10 @@ td:nth-child(5) {
 }
 
 .popup-fav .popup__body_fav .popup__content_fav table .favTbody tr td {
-    padding: 12px 29px;
+    padding: 13px 26px;
     font-size: 15px;
     color: white;
+
 }
 
  .imgg {
@@ -721,10 +722,6 @@ td:nth-child(5) {
     min-width: 400px;
 }
 
-.popup-fav .popup__body_fav .popup__content_fav table .favTbody tr td {
-    padding: 12px 15px;
-    font-size: 15px;
-}
 
 .popup__content {
     background-color: #fff;
