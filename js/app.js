@@ -413,21 +413,16 @@ function activeSong(id) {
 function playerMusic(name, id) {
     activeSong(id);
     let pauseIcon = document.querySelector('.pause');
+
     pauseIcon.style.display = 'block';
+
 
     let audio = document.getElementById('audio');
 
-    if(id === indexSong) {
-        audio.pause();
-        setTimeout(() => {
-            indexSong = 0;
-        }, 100);
-    } else {
-        audio.setAttribute('src', name);
-        audio.pause();
-        audio.load();
-        audio.play()
-    }
+    audio.setAttribute('src', name);
+    audio.pause();
+    audio.load();
+    audio.play()
     indexSong = id;
 }
 
@@ -435,6 +430,17 @@ function playerMusic(name, id) {
  * Pause the song
  * @param id - The id of the song that is currently playing.
  */
+
+// function pauseSong(id) {
+//     let pausSong = document.querySelectorAll('.pauseIcon');
+
+//     pausSong.forEach((item, i) => {
+//         if(id === i) {
+//             item.pause();
+//         }
+//     });
+// }
+
 function pauseSong(id) {
     let pauseMusic = document.querySelector('.pause');
     let audio = document.getElementById('audio');
@@ -768,6 +774,7 @@ function addMusic(arr, loadedMusicNumber) {
             <td>
                 <div class="align">
                     <img class="icons" src="./icons/Play.png" onclick="playerMusic('${item.src}', ${item.id})">
+                    <img class="pauseIcon" src="./icons/Pause.png" onclick="pauseSong(${item.id})">
                     <img class="icon"  src="./icons/Add to Favorite (web).png" onclick="addFavorites(${item.id})"
                     >
                 </div>
@@ -865,6 +872,10 @@ bgs.addEventListener('click', (e) => {
 
 let favoriteArr = [];
 
+/**
+ * Add or remove a song from the favorite list
+ * @param id - The id of the song you want to add to your favorites.
+ */
 function addFavorites(id) {
     if(favoriteArr.some((it) => it.id === id)) {
         addFavLove.forEach((lov, i) => {
@@ -892,23 +903,58 @@ let favtbody = document.querySelector('.favTbody');
 let addFavLove = document.querySelectorAll('.icon');
 let delFavorite = document.querySelectorAll('.close-icon');
 
-function deleteFAvorite(id) {
-    delFavorite.forEach((del, i) => {
-        
+/**
+ * Remove the favorite with the given id from the array of favorites.
+ * @param id - The id of the favorite to remove.
+ */
+function removeFavorite(id) {
+    favoriteArr = favoriteArr.filter((item) => item.id !== id);
+    updateFavorite();
+
+    addFavLove.forEach((remLove, i) => {
+        if(id === i) {
+            remLove.setAttribute('src', './icons/Add to Favorite (web).png');
+        }
     });
 }
 
+/**
+ * Add the current song to the user's favorite songs
+ */
+function updateFavorite() {
+    favoriteAddMusic();
+}
+
+/* Adding an event listener to the button that adds a favorite. */
 btnFavAdd.addEventListener('click', (e) => {
     e.preventDefault();
 
     popFav.classList.add('open_fav');
 });
 
+/* The above code is adding an event listener to the popFavClose button. When the popFavClose button is
+clicked, the popFav class is removed from the popFav div. */
 popFavClose.addEventListener('click', () => {
     popFav.classList.remove('open_fav');
 });
 
 
+let popupTime = document.querySelector('.popup-time');
+let popupTimeClose = document.querySelector('.popup__close_time');
+
+let time = setTimeout(() => {
+    popupTime.classList.add('open-time');
+}, 3000);
+
+popupTimeClose.addEventListener('click', () => {
+    popupTime.classList.remove('open-time');
+});
+
+
+
+/**
+ * This function is used to add the music to the favorite list
+ */
 function favoriteAddMusic() {
     favtbody.innerHTML = '';
     favoriteArr.forEach((ite) => {
@@ -924,7 +970,7 @@ function favoriteAddMusic() {
             <td>
                 <div class="align">
                     <img class="icons" src="./icons/Play.png" onclick="playerMusic('${ite.src}', ${ite.id})">
-                    <img class="close-icon" src="./icons/Close.png" onclick="deleteFAvorite(${ite.id})">
+                    <img class="close-icon" src="./icons/Close.png" onclick="removeFavorite(${ite.id})">
                 </div>
             </td>
         </tr>        
