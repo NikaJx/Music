@@ -360,7 +360,7 @@ let alboms = [
 
 ];
 
-let indexSong = 0;
+let indexSong = null;
 
 /**
  * This function changes the icon of the pause button to a play button or a play button to a pause
@@ -390,13 +390,16 @@ function activeSong(id) {
             if(trC.classList.contains('actived')) {
                 trC.classList.remove('actived');
                 pauseChangeIcon('./icons/Play.png', id);
+                console.log("should pouse")
             } else {
                 trC.classList.add('actived'); 
                 showPlayer();
                 pauseChangeIcon('./icons/Pause.png', id);
+                console.log("should play")
             }
         } else {
             trC.classList.remove('actived');
+            console.log("remove")
         }
     });
 }
@@ -412,13 +415,23 @@ function playerMusic(name, id) {
     pauseIcon.style.display = 'block';
 
     let audio = document.getElementById('audio');
-    audio.setAttribute('src', name);
+    console.log("indexSong", indexSong, id)
+    if(indexSong === id) {
+        console.log("1")
+        audio.pause();
+        indexSong = null;
+    } else {
+        console.log("2")
+        audio.setAttribute('src', name);
     
-    audio.pause();
-    audio.load();
-    audio.play()
+        audio.pause();
+        audio.load();
+        audio.play();
+        indexSong = id
+    }
+ 
 
-    indexSong = id;
+    
 }
 
 /**
