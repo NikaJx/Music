@@ -9,7 +9,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music.mp3'
+        src: './music/music.mp3',
+        numberFav: 1
     },
     {
         id: 1,
@@ -21,7 +22,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/CryJaxx-CandyShop(feat. Junior Charles).mp3'
+        src: './music/CryJaxx-CandyShop(feat. Junior Charles).mp3',
+        numberFav: 1
     },
     {
         id: 2,
@@ -33,7 +35,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music3.mp3'
+        src: './music/music3.mp3',
+        numberFav: 1
     },
     {
         id: 3,
@@ -45,7 +48,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music4.mp3'
+        src: './music/music4.mp3',
+        numberFav: 1
     },
     {
         id: 4,
@@ -57,7 +61,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music5.mp3'
+        src: './music/music5.mp3',
+        numberFav: 1
     },
     {
         id: 5,
@@ -69,7 +74,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music6.mp3'
+        src: './music/music6.mp3',
+        numberFav: 1
     },
     {
         id: 6,
@@ -81,7 +87,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music7.mp3'
+        src: './music/music7.mp3',
+        numberFav: 1
     },
     {
         id: 7,
@@ -93,7 +100,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music8.mp3'
+        src: './music/music8.mp3',
+        numberFav: 1
     },
     {
         id: 8,
@@ -105,7 +113,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music9.mp3'
+        src: './music/music9.mp3',
+        numberFav: 1
     },
     {
         id: 9,
@@ -117,7 +126,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music9.mp3'
+        src: './music/music9.mp3',
+        numberFav: 1
     },
     {
         id: 10,
@@ -129,7 +139,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music6.mp3'
+        src: './music/music6.mp3',
+        numberFav: 1
     },
     {
         id: 11,
@@ -141,7 +152,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music7.mp3'
+        src: './music/music7.mp3',
+        numberFav: 1
     },
     {
         id: 12,
@@ -153,7 +165,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music8.mp3'
+        src: './music/music8.mp3',
+        numberFav: 1
     },
     {
         id: 13,
@@ -165,7 +178,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music9.mp3'
+        src: './music/music9.mp3',
+        numberFav: 1
     },
     {
         id: 14,
@@ -177,7 +191,8 @@
         favorite: './icons/Play.png',
         pause: './icons/Pause.png',
         add: './icons/Add To Playlist (web).png',
-        src: './music/music9.mp3'
+        src: './music/music9.mp3',
+        numberFav: 1
     }
 ];
 
@@ -373,11 +388,9 @@ function pauseChangeIcon(src, id) {
     pauseIconChange.forEach((iconChange, i) => {
         if(id === i) {
             iconChange.setAttribute('src', src);
-            console.log(1);
             iconChange.setAttribute('active-music', 'true');
         } else {
             iconChange.setAttribute('src', './icons/Play.png');
-            console.log(2);
             iconChange.setAttribute('active-music', 'false');
         }
     });
@@ -423,37 +436,17 @@ function playerMusic(name, id) {
     let audio = document.getElementById('audio');
     console.log("indexSong", indexSong, id)
     if(indexSong === id) {
-        console.log("1")
         audio.pause();
         indexSong = null;
     } else {
-        console.log("2")
         audio.setAttribute('src', name);
     
         audio.pause();
         audio.load();
         audio.play();
         indexSong = id
-    }
- 
-
-    
+    }    
 }
-
-/**
- * Pause the song
- * @param id - The id of the song that is currently playing.
- */
-
-// function pauseSong(id) {
-//     let pausSong = document.querySelectorAll('.pauseIcon');
-
-//     pausSong.forEach((item, i) => {
-//         if(id === i) {
-//             item.pause();
-//         }
-//     });
-// }
 
 function pauseSong(id) {
     let pauseMusic = document.querySelector('.pause');
@@ -789,7 +782,7 @@ function addMusic(arr, loadedMusicNumber) {
                 <div class="align">
                     <img class="icons" src="./icons/Play.png" onclick="playerMusic('${item.src}', ${item.id})">
                     <img class="pauseIcon" src="./icons/Pause.png" onclick="pauseSong(${item.id})">
-                    <img class="icon"  src="./icons/Add to Favorite (web).png" onclick="addFavorites(${item.id})"
+                    <img class="icon"  src="./icons/Add to Favorite (web).png" onclick="addFavorites(${item.id}), showFavoritePlus()" 
                     >
                 </div>
             </td>
@@ -883,6 +876,16 @@ bgs.addEventListener('click', (e) => {
     }
 });
 
+let addFav = document.querySelector('.addLoveFAv');
+
+function showFavoritePlus() {
+    let numberFAvorite = 0;
+
+    favoriteArr.forEach((item) => {
+        numberFAvorite += item.numberFav;
+    });
+    addFav.innerHTML = `${numberFAvorite}`;
+}
 
 let favoriteArr = [];
 
@@ -916,6 +919,7 @@ let popFavClose = document.querySelector('.popup__close_fav');
 let favtbody = document.querySelector('.favTbody');
 let addFavLove = document.querySelectorAll('.icon');
 let delFavorite = document.querySelectorAll('.close-icon');
+let contentPopup = document.querySelector('.popup__content_fav');
 
 /**
  * Remove the favorite with the given id from the array of favorites.
@@ -924,6 +928,9 @@ let delFavorite = document.querySelectorAll('.close-icon');
 function removeFavorite(id) {
     favoriteArr = favoriteArr.filter((item) => item.id !== id);
     updateFavorite();
+    if(favoriteArr.length === 0) {
+        contentPopup.innerHTML = 'As long as you havent chosen anything';
+    }
 
     addFavLove.forEach((remLove, i) => {
         if(id === i) {
@@ -944,6 +951,9 @@ btnFavAdd.addEventListener('click', (e) => {
     e.preventDefault();
 
     popFav.classList.add('open_fav');
+    if(favoriteArr.length === 0) {
+        contentPopup.innerHTML = 'As long as you havent chosen anything';
+    }
 });
 
 /* The above code is adding an event listener to the popFavClose button. When the popFavClose button is
@@ -953,16 +963,17 @@ popFavClose.addEventListener('click', () => {
 });
 
 
-let popupTime = document.querySelector('.popup-time');
-let popupTimeClose = document.querySelector('.popup__close_time');
 
-let time = setTimeout(() => {
-    popupTime.classList.add('open-time');
-}, 3000);
+// let popupTime = document.querySelector('.popup-time');
+// let popupTimeClose = document.querySelector('.popup__close_time');
 
-popupTimeClose.addEventListener('click', () => {
-    popupTime.classList.remove('open-time');
-});
+// let time = setTimeout(() => {
+//     popupTime.classList.add('open-time');
+// }, 3000);
+
+// popupTimeClose.addEventListener('click', () => {
+//     popupTime.classList.remove('open-time');
+// });
 
 
 
@@ -984,10 +995,42 @@ function favoriteAddMusic() {
             <td>
                 <div class="align">
                     <img class="icons" src="./icons/Play.png" onclick="playerMusic('${ite.src}', ${ite.id})">
-                    <img class="close-icon" src="./icons/Close.png" onclick="removeFavorite(${ite.id})">
+                    <img class="close-icon" src="./icons/Close.png" onclick="removeFavorite(${ite.id}), showFavoritePlus()">
                 </div>
             </td>
         </tr>        
         `;
     });
 }
+
+
+const wt = new WebTour();
+const steps = [
+    {
+        element: '.container-table',            
+        title: 'Welcome',         
+        content: 'You can listen to music on this site',    
+        placement: 'top-start',      
+    },
+    {
+        element: '.icons',            
+        title: 'Play music',         
+        content: 'To do this, click on the Play button',     
+        placement: 'left-start',       
+    },
+    {
+        element: '.addFav',            
+        title: 'Add Favorite',         
+        content: 'And also you can add your favorite music to your favorites',     
+        placement: 'left-start',       
+    },
+    {
+        element: '.icon',            
+        title: 'Add Favorite',         
+        content: 'For this click on the button',     
+        placement: 'left-start',  
+    },
+];
+
+wt.setSteps(steps);
+wt.start();

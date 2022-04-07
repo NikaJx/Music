@@ -227,6 +227,17 @@ header .main-menu .menu .input-rigth .rigth input::placeholder {
     margin-left: 12px;
 }
 
+.popAdd {
+    position: relative;
+}
+
+.addLoveFAv {
+    position: absolute;
+    color: wheat;
+    top: -24px;
+    left: 39px;
+}
+
 
 .artist .artis-info .artist-rigth .iconss img {
     padding-left: 10px;
@@ -817,11 +828,13 @@ td:nth-child(5) {
 
 .popup__content_fav {
     background: url('../img/BG.png') center center/cover no-repeat;
-    color: #000;
+    color: white;
     max-width: 800px;
     padding: 30px;
     position: relative;
     min-width: 400px;
+    text-align: center;
+    font-size: 20px;
 }
 
 
@@ -838,7 +851,7 @@ td:nth-child(5) {
     right: 10px;
     top: 10px;
     font-size: 20px;
-    color: #000;
+    color: #fff;
     text-decoration: none;
 }
 
