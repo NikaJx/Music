@@ -429,21 +429,23 @@ function activeSong(id) {
 function playerMusic(name, id) {
     activeSong(id);
     let pauseIcon = document.querySelector('.pause');
-
-    pauseIcon.style.display = 'block';
-
+    let playerIcon = document.querySelector('.playIcon');
 
     let audio = document.getElementById('audio');
     console.log("indexSong", indexSong, id)
     if(indexSong === id) {
         audio.pause();
         indexSong = null;
+        pauseIcon.style.display = 'none';
+        playerIcon.style.display = 'block';
     } else {
         audio.setAttribute('src', name);
     
         audio.pause();
         audio.load();
         audio.play();
+        pauseIcon.style.display = 'block';
+        playerIcon.style.display = 'none';
         indexSong = id
     }    
 }
@@ -919,7 +921,9 @@ let popFavClose = document.querySelector('.popup__close_fav');
 let favtbody = document.querySelector('.favTbody');
 let addFavLove = document.querySelectorAll('.icon');
 let delFavorite = document.querySelectorAll('.close-icon');
-let contentPopup = document.querySelector('.popup__content_fav');
+let contentPopup = document.querySelector('.popup__content_fav'); 
+let textPop = document.querySelector('popup__content_time');
+let labelPop = document.querySelector('.close-popFav');
 
 /**
  * Remove the favorite with the given id from the array of favorites.
@@ -929,8 +933,8 @@ function removeFavorite(id) {
     favoriteArr = favoriteArr.filter((item) => item.id !== id);
     updateFavorite();
     if(favoriteArr.length === 0) {
-        contentPopup.innerHTML = 'As long as you havent chosen anything';
-    }
+        labelPop.textContent = 'You have not chosen favorites yet';
+    } 
 
     addFavLove.forEach((remLove, i) => {
         if(id === i) {
@@ -952,7 +956,7 @@ btnFavAdd.addEventListener('click', (e) => {
 
     popFav.classList.add('open_fav');
     if(favoriteArr.length === 0) {
-        contentPopup.innerHTML = 'As long as you havent chosen anything';
+        labelPop.textContent = 'You have not chosen favorites yet';
     }
 });
 
@@ -961,21 +965,6 @@ clicked, the popFav class is removed from the popFav div. */
 popFavClose.addEventListener('click', () => {
     popFav.classList.remove('open_fav');
 });
-
-
-
-// let popupTime = document.querySelector('.popup-time');
-// let popupTimeClose = document.querySelector('.popup__close_time');
-
-// let time = setTimeout(() => {
-//     popupTime.classList.add('open-time');
-// }, 3000);
-
-// popupTimeClose.addEventListener('click', () => {
-//     popupTime.classList.remove('open-time');
-// });
-
-
 
 /**
  * This function is used to add the music to the favorite list
