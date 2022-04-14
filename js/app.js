@@ -407,16 +407,13 @@ function activeSong(id) {
             if(trC.classList.contains('actived')) {
                 trC.classList.remove('actived');
                 pauseChangeIcon('./icons/Play.png', id);
-                console.log("should pouse")
             } else {
                 trC.classList.add('actived'); 
                 showPlayer();
                 pauseChangeIcon('./icons/Pause.png', id);
-                console.log("should play")
             }
         } else {
             trC.classList.remove('actived');
-            console.log("remove")
         }
     });
 }
@@ -432,7 +429,6 @@ function playerMusic(name, id) {
     let playerIcon = document.querySelector('.playIcon');
 
     let audio = document.getElementById('audio');
-    console.log("indexSong", indexSong, id)
     if(indexSong === id) {
         audio.pause();
         indexSong = null;
@@ -440,7 +436,6 @@ function playerMusic(name, id) {
         playerIcon.style.display = 'block';
     } else {
         audio.setAttribute('src', name);
-    
         audio.pause();
         audio.load();
         audio.play();
@@ -957,7 +952,7 @@ btnFavAdd.addEventListener('click', (e) => {
     popFav.classList.add('open_fav');
     if(favoriteArr.length === 0) {
         labelPop.textContent = 'You have not chosen favorites yet';
-    }
+    } 
 });
 
 /* The above code is adding an event listener to the popFavClose button. When the popFavClose button is

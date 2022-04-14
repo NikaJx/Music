@@ -893,6 +893,10 @@ td:nth-child(5) {
     text-decoration: none;
 }
 
+.wt-content {
+    padding-top: 10px;
+}
+
 @media (max-width: 1289px) {
     .containers {
         width: calc(100% - 30px);
@@ -1038,5 +1042,23 @@ td:nth-child(5) {
     .container-music {
         width: calc(100% - 30px);
         padding: 0 15px ;
+    }
+}
+
+@media (max-width: 734px) {
+    .playerMusic .music-play {
+        margin-bottom: 20px;
+    }
+    .left img {
+        display: none;
+    }
+    .progres-bar {
+        display: none;
+    }
+    .rigth {
+        width: 100px;
+    }
+    .rigth input {
+        width: 100px;
     }
 }
