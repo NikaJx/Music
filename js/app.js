@@ -875,6 +875,13 @@ bgs.addEventListener('click', (e) => {
 
 let addFav = document.querySelector('.addLoveFAv');
 
+/**
+ * The function showFavoritePlus() is a function that takes no arguments and returns nothing. It
+ * declares a variable named numberFavorite and assigns it the value 0. It then loops through the array
+ * named favoriteArr and adds the value of the property named numberFav to the variable named
+ * numberFavorite. It then assigns the value of the variable named numberFavorite to the innerHTML
+ * property of the element with the id of addFav.
+ */
 function showFavoritePlus() {
     let numberFAvorite = 0;
 
@@ -988,6 +995,7 @@ function favoriteAddMusic() {
 }
 
 
+/* The above code is creating a new WebTour object and then setting the steps for the tour. */
 const wt = new WebTour();
 const steps = [
     {
@@ -1018,3 +1026,59 @@ const steps = [
 
 wt.setSteps(steps);
 wt.start();
+
+
+const popularSong = document.querySelector('.content-table');
+const downBtn = document.querySelector('.down');
+const upBtn = document.querySelector('.up');
+
+downBtn.addEventListener('click', () => {
+    popularSong.classList.add('clicke');
+    upBtn.style.display = 'flex';
+    downBtn.style.display = 'none';
+});
+
+upBtn.addEventListener('click', () => {
+    popularSong.classList.remove('clicke');
+    upBtn.style.display = 'none';
+    downBtn.style.display = 'flex';
+});
+
+
+const openPopUpBtn = document.querySelector('.profile');
+const closePopUpBtn = document.querySelector('.pop_up_close');
+const popUp = document.querySelector('.pop_up');
+
+openPopUpBtn.addEventListener('click', () => {
+    popUp.classList.add('activeB');
+});
+
+closePopUpBtn.addEventListener('click', () => {
+    popUp.classList.remove('activeB');
+});
+
+//form
+
+const form = document.querySelectorAll('form');
+const input = document.querySelectorAll('input');
+
+async function postData(url, data) {
+    let res = await fetch(url, {
+        method: 'POST',
+        body: data
+    });
+    return await res.text();
+}
+
+form.forEach((item) => {
+    item.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(item);
+
+        postData('', formData)
+            .then(res => {
+                console.log(res);
+            })
+    });
+});
